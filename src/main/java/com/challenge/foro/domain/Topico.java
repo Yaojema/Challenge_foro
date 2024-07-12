@@ -28,4 +28,13 @@ public class Topico {
     private String curso;
     private String autor;
 
+    public Topico(DatosRegistroTopico datosRegistroTopico) {
+        this.titulo = datosRegistroTopico.titulo();
+        this.mensaje = datosRegistroTopico.mensaje();
+        this.fechaCreacion = datosRegistroTopico.fechaCreacion();
+//        this.fechaCreacion = LocalDate.now();
+        this.estado = datosRegistroTopico.estado();
+        this.curso = datosRegistroTopico.curso();
+        this.autor = datosRegistroTopico.autor();
+    }
 }
