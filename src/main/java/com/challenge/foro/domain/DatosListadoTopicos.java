@@ -10,11 +10,11 @@ public record DatosListadoTopicos(
         String mensaje,
         @JsonProperty("fecha_creacion") LocalDateTime fechaCreacion
 ) {
-    public DatosListadoTopicos(Topico medico) {
+    public DatosListadoTopicos(Topico topico) {
         this(
-                medico.getId(),
-                medico.getTitulo(),
-                medico.getMensaje(),
-                medico.getFechaCreacion());
+                topico.getId(),
+                topico.getTitulo(),
+                topico.getMensaje(),
+                topico.getFechaCreacion());
     }
 }

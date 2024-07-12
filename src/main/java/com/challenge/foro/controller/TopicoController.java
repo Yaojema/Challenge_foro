@@ -45,4 +45,22 @@ public class TopicoController {
     public ResponseEntity<Page<DatosListadoTopicos>> listadoTopicos(@PageableDefault(size = 3) Pageable paginacion){
         return ResponseEntity.ok(repository.findAll(paginacion).map(DatosListadoTopicos::new));
     }
+
+    // Get detallado por id
+    @GetMapping("/{id}")
+    public ResponseEntity<DatosRespuestaTopico> retornarDatosTopico(@PathVariable Long id){
+        Topico topico = repository.getReferenceById(id);
+        DatosRespuestaTopico datosTopicos = new DatosRespuestaTopico(
+                topico.getId(),
+                topico.getTitulo(),
+                topico.getMensaje(),
+                topico.getFechaCreacion(),
+                topico.getEstado(),
+                topico.getCurso(),
+                topico.getAutor()
+        );
+        return ResponseEntity.ok(datosTopicos);
+    }
+
+
 }
