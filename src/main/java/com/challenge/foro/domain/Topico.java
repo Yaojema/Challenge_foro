@@ -31,7 +31,6 @@ public class Topico {
     public Topico(DatosRegistroTopico datosRegistroTopico) {
         this.titulo = datosRegistroTopico.titulo();
         this.mensaje = datosRegistroTopico.mensaje();
-//        this.fechaCreacion = datosRegistroTopico.fechaCreacion();
         this.fechaCreacion = LocalDateTime.now();
         this.estado = datosRegistroTopico.estado();
         this.curso = datosRegistroTopico.curso();
