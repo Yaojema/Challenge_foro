@@ -3,6 +3,7 @@ package com.challenge.foro.domain;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
@@ -11,9 +12,9 @@ public record DatosRegistroTopico(
         String titulo,
         @NotBlank
         String mensaje,
-        @NotBlank
+        @NotNull
         @JsonAlias("fecha_creacion") LocalDate fechaCreacion,
-        @NotBlank
+        @NotNull
         Estado estado,
         @NotBlank
         String curso,
