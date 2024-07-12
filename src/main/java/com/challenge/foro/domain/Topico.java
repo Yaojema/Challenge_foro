@@ -4,7 +4,7 @@ package com.challenge.foro.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Table(name = "topicos")
 @Entity(name = "Topico")
@@ -22,7 +22,7 @@ public class Topico {
     private String titulo;
     private String mensaje;
     @Column(name = "fecha_creacion")
-    private LocalDate fechaCreacion;
+    private LocalDateTime fechaCreacion;
     @Enumerated(EnumType.STRING)
     private Estado estado;
     private String curso;
@@ -31,8 +31,8 @@ public class Topico {
     public Topico(DatosRegistroTopico datosRegistroTopico) {
         this.titulo = datosRegistroTopico.titulo();
         this.mensaje = datosRegistroTopico.mensaje();
-        this.fechaCreacion = datosRegistroTopico.fechaCreacion();
-//        this.fechaCreacion = LocalDate.now();
+//        this.fechaCreacion = datosRegistroTopico.fechaCreacion();
+        this.fechaCreacion = LocalDateTime.now();
         this.estado = datosRegistroTopico.estado();
         this.curso = datosRegistroTopico.curso();
         this.autor = datosRegistroTopico.autor();

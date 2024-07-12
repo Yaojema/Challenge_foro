@@ -12,8 +12,8 @@ public record DatosRegistroTopico(
         String titulo,
         @NotBlank
         String mensaje,
-        @NotNull
-        @JsonAlias("fecha_creacion") LocalDate fechaCreacion,
+//        @NotNull
+//        @JsonAlias("fecha_creacion") LocalDate fechaCreacion,
         @NotNull
         Estado estado,
         @NotBlank

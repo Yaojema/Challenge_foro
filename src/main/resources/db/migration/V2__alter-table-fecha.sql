@@ -1,0 +1,1 @@
+ALTER TABLE topicos MODIFY fecha_creacion DATETIME;
