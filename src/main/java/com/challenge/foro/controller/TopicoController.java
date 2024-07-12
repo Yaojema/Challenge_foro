@@ -1,16 +1,14 @@
 package com.challenge.foro.controller;
 
-import com.challenge.foro.domain.DatosRegistroTopico;
-import com.challenge.foro.domain.DatosRespuestaTopico;
-import com.challenge.foro.domain.Topico;
-import com.challenge.foro.domain.TopicoRepository;
+import com.challenge.foro.domain.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -22,6 +20,7 @@ public class TopicoController {
     @Autowired
     private TopicoRepository repository;
 
+    // Registro de topicos
     @PostMapping
     public ResponseEntity<DatosRespuestaTopico> registrarTopico(
             @RequestBody @Valid DatosRegistroTopico datosRegistroTopico,
@@ -39,5 +38,11 @@ public class TopicoController {
         );
         URI url = uriComponentsBuilder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri();
         return ResponseEntity.created(url).body(datosRespuestaTopico);
+    }
+
+    // Listado de los topicos
+    @GetMapping
+    public ResponseEntity<Page<DatosListadoTopicos>> listadoTopicos(@PageableDefault(size = 3) Pageable paginacion){
+        return ResponseEntity.ok(repository.findAll(paginacion).map(DatosListadoTopicos::new));
     }
 }
