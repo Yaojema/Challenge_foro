@@ -1,6 +1,7 @@
 package com.challenge.foro.controller;
 
 import com.challenge.foro.domain.*;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -64,10 +65,29 @@ public class TopicoController {
 
     // Borrado por id
     @DeleteMapping("/{id}")
+    @Transactional
     public ResponseEntity eliminarTopico(@PathVariable Long id){
         Topico topico = repository.getReferenceById(id);
         repository.delete(topico);
         return ResponseEntity.noContent().build();
+    }
+
+    // Actualizar
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity actualizarTopico(@RequestBody @PathVariable Long id, @RequestBody DatosActualizarTopico datosActualizarTopico){
+        Topico topico = repository.getReferenceById(id);
+        topico.actualizarDatos(datosActualizarTopico);
+        return ResponseEntity.ok( new DatosRespuestaTopico(
+                topico.getId(),
+                topico.getTitulo(),
+                topico.getMensaje(),
+                topico.getFechaCreacion(),
+                topico.getEstado(),
+                topico.getCurso(),
+                topico.getAutor()
+        ));
+
     }
 
 
