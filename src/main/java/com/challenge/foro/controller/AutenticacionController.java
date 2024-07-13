@@ -1,6 +1,8 @@
 package com.challenge.foro.controller;
 
 import com.challenge.foro.domain.usuarios.DatosAutenticacionUsuario;
+import com.challenge.foro.domain.usuarios.Usuario;
+import com.challenge.foro.infra.security.DatosJWTToken;
 import com.challenge.foro.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +30,8 @@ public class AutenticacionController {
         Authentication authToken = new UsernamePasswordAuthenticationToken(
                 datosAutenticacionUsuario.login(),
                 datosAutenticacionUsuario.clave());
-        authenticationManager.authenticate(authToken);
-        var JWTtoken = tokenService.generarToken();
-        return ResponseEntity.ok(JWTtoken);
+        var usuarioAutenticado = authenticationManager.authenticate(authToken);
+        var JWTtoken = tokenService.generarToken((Usuario) usuarioAutenticado.getPrincipal());
+        return ResponseEntity.ok( new DatosJWTToken(JWTtoken));
     }
 }
