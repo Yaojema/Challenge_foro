@@ -62,5 +62,13 @@ public class TopicoController {
         return ResponseEntity.ok(datosTopicos);
     }
 
+    // Borrado por id
+    @DeleteMapping("/{id}")
+    public ResponseEntity eliminarTopico(@PathVariable Long id){
+        Topico topico = repository.getReferenceById(id);
+        repository.delete(topico);
+        return ResponseEntity.noContent().build();
+    }
+
 
 }
