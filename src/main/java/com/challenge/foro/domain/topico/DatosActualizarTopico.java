@@ -1,7 +1,4 @@
-package com.challenge.foro.domain;
-
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+package com.challenge.foro.domain.topico;
 
 public record DatosActualizarTopico(
         String titulo,

@@ -1,4 +1,4 @@
-package com.challenge.foro.domain;
+package com.challenge.foro.domain.topico;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

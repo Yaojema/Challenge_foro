@@ -1,9 +1,7 @@
-package com.challenge.foro.domain;
+package com.challenge.foro.domain.topico;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.NotBlank;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public record DatosRespuestaTopico(
