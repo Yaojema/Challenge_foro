@@ -1,3 +1,7 @@
+<div id="header" align="center">
+  <img src="https://github.com/user-attachments/assets/9858b2d5-94e1-4a48-9659-d5edc8f2932b" width="100"/>
+</div>
+
 # Challenge Foro con Spring Boot
 
 En este desafío de Spring, he creado mi propio catálogo API REST foro. Aprendí a realizar solicitudes a mi API usando INSOMIA, a manipular datos JSON, a guardar en una base de datos usando Hibernate y validaciones así como DTO.
@@ -36,6 +40,7 @@ La aplicación de Foro utilizó Insomnia para hacer HttpRequest de POST, GET, DE
 ## Contribución
 
 Si tienes ideas adicionales o mejoras, no dudes en contactarme. La creatividad es esencial para el desarrollo de software 😊.
-
+<!--
 ![Badge-Spring](https://github.com/user-attachments/assets/9858b2d5-94e1-4a48-9659-d5edc8f2932b)
+>
 
